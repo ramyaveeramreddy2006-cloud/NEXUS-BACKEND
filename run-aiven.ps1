@@ -19,8 +19,8 @@ if (Test-PortInUse -Port 8081) {
     exit 1
 }
 
-$defaultHost = 'mysql-674b695-anurag-bd44.h.aivencloud.com'
-$defaultPort = '16143'
+$defaultHost = 'mysql-36f4422f-ramyaveeramreddy2006-4ed3.c.aivencloud.com'
+$defaultPort = '21882'
 $defaultDatabase = 'defaultdb'
 $defaultUsername = 'avnadmin'
 $hostInput = (Read-Host "Aiven host [$defaultHost]").Trim()
