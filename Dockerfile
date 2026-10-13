@@ -11,5 +11,6 @@ RUN groupadd --system --gid 10001 nexus \
     && useradd --system --uid 10001 --gid nexus --no-create-home nexus
 COPY --from=build --chown=nexus:nexus /workspace/target/nexus-platform-1.0.0.jar /app/app.jar
 USER nexus
+ENV JAVA_OPTS="-XX:+UseContainerSupport -XX:MaxRAMPercentage=75.0 -Xss512k -XX:+ExitOnOutOfMemoryError"
 EXPOSE 8081
-ENTRYPOINT ["java", "-jar", "/app/app.jar"]
+ENTRYPOINT ["sh", "-c", "exec java $JAVA_OPTS -jar /app/app.jar"]

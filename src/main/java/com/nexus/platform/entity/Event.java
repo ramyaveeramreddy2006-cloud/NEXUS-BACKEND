@@ -8,5 +8,5 @@ public class Event {
  String createdBy;
  @Column(precision=10,scale=2) BigDecimal registrationFee;
  String registrationUrl;
- @JsonIgnore @OneToMany(mappedBy="event",cascade=CascadeType.ALL,orphanRemoval=true) List<EventRegistration> registrations=new ArrayList<>();
+ @JsonIgnore @OneToMany(mappedBy="event",cascade=CascadeType.ALL,orphanRemoval=true) @Builder.Default List<EventRegistration> registrations=new ArrayList<>();
 }
